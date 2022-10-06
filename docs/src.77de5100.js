@@ -671,6 +671,11 @@ var _helpers = require("~/helpers");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+window.addEventListener("resize", function () {
+  console.log(12312312);
+  window.location.reload();
+});
+
 var Game =
 /** @class */
 function () {
@@ -713,15 +718,15 @@ function () {
       view.drawScore(this.score);
     }
 
-    if (bricks.length === 0 || ball.pos.y > view.canvas.height) {
-      this.gameover = true;
-      view.showStart();
-    }
-
     if (this.gameover) return;
     requestAnimationFrame(function () {
       _this.gameLoop(view, paddle, ball, bricks, collision);
     });
+
+    if (bricks.length === 0 || ball.pos.y > view.canvas.height) {
+      this.gameover = true;
+      view.showStart();
+    }
   };
 
   Game.prototype.startGame = function (view) {
@@ -778,7 +783,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64572" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59881" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

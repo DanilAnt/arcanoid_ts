@@ -15,7 +15,10 @@ import {
 } from '~/setup'
 
 import { createBricks } from '~/helpers'
-
+window.addEventListener("resize", () => {
+    console.log(12312312);
+    window.location.reload();
+})
 class Game {
     gameover = false
     score = 0
@@ -64,21 +67,23 @@ class Game {
         const colliding = collision.isCollidingBricks(ball, bricks)
 
         if (colliding) {
-            
+
 
             this.score += 1
             view.drawScore(this.score)
         }
 
-        if(bricks.length === 0 || ball.pos.y > view.canvas.height){
-            this.gameover = true
-            view.showStart()
-        }
 
-if(this.gameover) return
+
+        if (this.gameover) return
         requestAnimationFrame(() => {
             this.gameLoop(view, paddle, ball, bricks, collision)
         })
+
+        if (bricks.length === 0 || ball.pos.y > view.canvas.height) {
+            this.gameover = true
+            view.showStart()
+        }
     }
 
     startGame(view: CanvasView) {

@@ -21,7 +21,6 @@ export class Paddle {
             document.addEventListener("pointerup", this.handlePointerUp.bind(this));
         }else{
             document.addEventListener("keydown", this.handleKeyDown.bind(this));
-      
             document.addEventListener("keyup", this.handleKeyUp.bind(this))
           
         }
@@ -32,8 +31,10 @@ export class Paddle {
         console.log(e);
         if (e.x < window.innerWidth / 2) {
             this.moveLeft = true;
+            this.moveRight = false;
         } else {
             this.moveRight = true;
+            this.moveLeft = false;
         }
 
     }

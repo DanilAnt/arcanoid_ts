@@ -7,7 +7,7 @@
   <body>
     <div id="main" class="main" >
       <canvas id="playField" width="100%" height="100%"></canvas>
-      <img  id="background" ></img>
+      <img  id="background" src="./images/background.png"></img>
       <div id="display">
         <div id="score"></div>
         <button id="start" style="padding: 8px">Start</button>
@@ -43,13 +43,7 @@
       font-size: 32px;
       font-family: Arial, Helvetica, sans-serif;
     }
-    html {
-     background-image: url(./images/background.png) ; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+   
     html,
 body {
     overflow: hidden;
@@ -68,8 +62,13 @@ body {
     }
 
     img{
-      width: 100%;
-      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width:100vw;
+
+     
+      height: 100vh;
       object-fit: cover;
       pointer-events: none;
     }

@@ -37,14 +37,19 @@
       overflow: hidden;
       
       height: 100%;
-      background-image: url(./images/background.png);
+      
       margin: 0 auto;
       /* width: var(--width); */
-      height: 100vh;
       font-size: 32px;
       font-family: Arial, Helvetica, sans-serif;
     }
-
+    html {
+     background-image: url(./images/background.png) ; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
     html,
 body {
     overflow: hidden;

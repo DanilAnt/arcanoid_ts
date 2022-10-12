@@ -10,7 +10,7 @@ import {
     BRICK_ENERGY
 } from '~/setup'
 
-export function createBricks(): Array<Brick> {
+export function createBricks(STAGE_PADDING:number, BRICK_PADDING: number,BRICK_WIDTH: number,BRICK_HEIGHT: number, ): Array<Brick> {
     return LEVEL.reduce((acc: Array<Brick>, cell: number, i: number): Array<Brick> => {
         const row = Math.floor((i + 1) / STAGE_COLS);
         const col = i % STAGE_COLS;

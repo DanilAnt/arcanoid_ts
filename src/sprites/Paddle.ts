@@ -16,33 +16,39 @@ export class Paddle {
         this.moveRight = false;
         this.paddleImage.src = image;
 
-        document.addEventListener("keydown", this.handleKeyDown.bind(this));
-        document.addEventListener("pointerdown", this.handlePointerDown.bind(this));
-        document.addEventListener("keyup", this.handleKeyUp.bind(this))
-        document.addEventListener("pointerup", this.handlePointerUp.bind(this));
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            document.addEventListener("pointerdown", this.handlePointerDown.bind(this));
+            document.addEventListener("pointerup", this.handlePointerUp.bind(this));
+        }else{
+            document.addEventListener("keydown", this.handleKeyDown.bind(this));
+      
+            document.addEventListener("keyup", this.handleKeyUp.bind(this))
+          
+        }
+       
     }
 
-    handlePointerDown(e : PointerEvent){
+    handlePointerDown(e: PointerEvent) {
         console.log(e);
-        if(e.x < window.innerWidth/2){
+        if (e.x < window.innerWidth / 2) {
             this.moveLeft = true;
-        }else{
+        } else {
             this.moveRight = true;
         }
-        
+
     }
-    handlePointerUp(e : PointerEvent){
+    handlePointerUp(e: PointerEvent) {
         console.log(e);
-        if(e.x < window.innerWidth/2){
+        if (e.x < window.innerWidth / 2) {
             this.moveLeft = false;
-        }else{
+        } else {
             this.moveRight = false;
         }
-        
+
     }
     handleKeyDown(e: KeyboardEvent) {
         console.log(13123);
-        
+
         if (e.code === 'ArrowLeft' || e.key === 'ArrowLeft') {
             this.moveLeft = true;
         } if (e.code === 'ArrowRight' || e.key === 'ArrowRight') {
@@ -80,6 +86,19 @@ export class Paddle {
 
     get isMovingRight(): boolean {
         return this.moveRight
+    }
+
+    set width(width: number) {
+        this.paddleWidth = width
+    }
+
+    set height(height: number) {
+        this.paddleHeight = height
+    }
+
+    set pos(pos: Vector) {
+        this.position.x = pos.x
+        this.position.y = pos.y
     }
 
     movePaddle(): void {

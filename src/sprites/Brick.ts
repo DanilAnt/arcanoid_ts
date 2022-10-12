@@ -1,6 +1,6 @@
 import { Vector } from "~/types";
 
-export class Brick{
+export class Brick {
     private brickImage = new Image();
 
 
@@ -10,10 +10,10 @@ export class Brick{
         private brickHeight: number,
         private position: Vector,
         private brickEnergy: number,
-        image : string
-    ){
-       
-        
+        image: string
+    ) {
+
+
         this.brickImage.src = image;
     }
 
@@ -35,12 +35,25 @@ export class Brick{
 
     get image(): HTMLImageElement {
         //  console.log(this.brickImage);
-        
+
         return this.brickImage
     }
 
 
-    set energy(energy: number){
-        this.brickEnergy = energy 
+    set energy(energy: number) {
+        this.brickEnergy = energy
+    }
+
+    set width(width: number) {
+        this.brickWidth = width
+    }
+
+    set height(height: number) {
+        this.brickHeight = height
+    }
+
+    set pos(pos: Vector) {
+        this.position.x = pos.x
+        this.position.y = pos.y
     }
 }

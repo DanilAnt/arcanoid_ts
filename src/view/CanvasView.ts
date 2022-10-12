@@ -22,16 +22,16 @@ export class CanvasView {
     }
 
     hideStart() {
-        if(this.start){
-             this.start.style.display = 'none'
+        if (this.start) {
+            this.start.style.display = 'none'
         }
-       
+
     }
 
     showStart() {
-        if(this.start){
+        if (this.start) {
             this.start.style.display = 'block'
-       }
+        }
     }
     clear(): void {
         this.context?.clearRect(0, 0, this.canvas.width, this.canvas.height)
@@ -55,7 +55,7 @@ export class CanvasView {
 
     drawSprite(brick: Ball | Brick | Paddle) {
         if (!brick) return
-        
+
         this.context?.drawImage(
             brick.image,
             brick.pos.x,
@@ -65,9 +65,9 @@ export class CanvasView {
         )
     }
 
-    drawBricks(bricks : Brick[]) : void{
+    drawBricks(bricks: Brick[]): void {
         // console.log(12312);
-        
+
         bricks.forEach(brick => {
             this.drawSprite(brick)
         })

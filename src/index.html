@@ -5,9 +5,9 @@
     <title>Typescript App</title>
   </head>
   <body>
-    <div id="main" class="main">
+    <div id="main" class="main" >
       <canvas id="playField" width="100%" height="100%"></canvas>
-      <img  id="background" src="./images/background.png"></img>
+      <img  id="background" ></img>
       <div id="display">
         <div id="score"></div>
         <button id="start" style="padding: 8px">Start</button>
@@ -37,7 +37,7 @@
       overflow: hidden;
       
       height: 100%;
-
+      background-image: url(./images/background.png);
       margin: 0 auto;
       /* width: var(--width); */
       height: 100vh;
@@ -70,7 +70,7 @@ body {
     }
     #display {
       position: absolute;
-      bottom: 0;
+      bottom: 10%;
       display: flex;
       justify-content: space-between;
       width:100%;
